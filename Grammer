@@ -1,0 +1,172 @@
+MARKTEX 语法设计
+
+标题
+---------------------------
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+
+
+列表
+---------------------------
+无序列表
+* Item 一级列表
+** Item 二级列表
+*** Item 三级列表
+
+有序列表
+1. Item 1
+2. Item 2
+3. Item 3
+
+待办列表:
++ Incomplete item
+- Complete item
+
+样式
+---------------------------
+*斜体* 
+**粗体** 
+==高亮== 
+~~删除线~~
+> 引用
+H_2_O 下标
+2^10^ 上标
+
+注释
+---------------------------
+// There are single line comment.
+
+/*
+There are multi-line 
+comment.
+*/
+
+折行
+---------------------------
+There are single line content \
+   coded by multi line.
+
+链接
+---------------------------
+[link](http://example.com) 文字链接
+
+An image: [Alt](!img.jpg) 图片链接
+
+!img: img.png
+An image: [Alt](!img) 图片链接
+
+A sized image: [Alt](!img.jpg =60x50) 固定大小的图片
+
+锚点
+---------------------------
+#id: A id.
+Some text with a [id](#id)
+
+css样式应用
+---------------------------
+@(color:red font-size:16px):  // The scope end with a space line
+Some style with blue color.
+
+Some style with red [color](color:red font-size:16px).
+
+.class: {
+    color:red
+}
+Some style with a [class](.class).
+
+@(.class):  // The scope end with a space line
+Some style with a [class](.class).
+
+注脚
+---------------------------
+Some text with a [footnote](^1)
+^1: The footnote.
+
+缩写
+---------------------------
+Markdown converts text to [HTML](*HTML).
+*HTML: HyperText Markup Language
+
+
+表格
+---------------------------
+| Item           | Value  |
+| Computer | $1600 |
+| Phone        | $12     |
+| Pipe           | $1        |
+
+| Column 1 | Column 2 | Column 3         |
+|: two cell width            | one cell width  | 
+|:: three cell width                                     |
+|| two cell height | one cell height | one cell height |
+                             | one cell height | one cell height |
+||| three cell height | one cell height | one cell height |
+                             | one cell height | one cell height  |
+                             | one cell height | one cell height |
+| centered |< left-aligned |> right-aligned |
+
+公式编辑器
+---------------------------
+行内公式
+There are math content: $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ .
+
+单行公式
+$$\Gamma(z) = \int_0^\infty t^{z-1}
+e^{-t}dt$$
+
+多行公式
+$$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt
+$$$
+
+代码
+---------------------------
+行内代码
+Some `inline code`.
+
+单行代码
+`` inline code ``.
+
+代码块
+```
+// A code block
+var foo = 'bar';
+```
+
+语言标注
+```javascript
+// An highlighted block
+var foo = 'bar';
+``` 
+
+流程图
+---------------------------
+.hard-edge: {
+    border-radius:1px;
+}
+.radius-edge: {
+    border-radius:50%;
+}
+
+// letter,’-‘ and number(number can't be capital) are allowed for vars
+A(.start .hard-edge): Start
+B(.operation .radius-edge): Operation
+C(.condition): Condition
+D: To do with case yes
+E: To do with case no
+
+!flow:
+@A --> @B --> @C
+@C -[Y](color:red)-> @D, -[N](color:blue)-> @E
+
+/*
+another code type is the following
+!flow:
+@A --> @B --> @C
+@C -[Y](color:red)-> @D
+@C -[N](color:blue)-> @E
+*/
